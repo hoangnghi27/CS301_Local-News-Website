@@ -1,0 +1,43 @@
+.container {
+  .side-bar {
+    hr {
+      border: none;
+      height: 0.5px;
+      /* Set the hr color */
+      color: #625d5d; /* old IE */
+      background-color: #625d5d;
+    }
+    .card {
+      .card-img {
+        img {
+          width: 100%;
+          height: 8vh;
+          object-fit: cover;
+          border-radius: 8px;
+          image-rendering: auto;
+        }
+      }
+      .card-text {
+        .title {
+          .description {
+            line-height: 25px;
+            font-size: 1rem;
+          }
+        }
+        .src {
+          margin-top: 10px;
+          .news-time {
+            display: block;
+            font-weight: 700;
+          }
+          span {
+            font-size: 0.7rem;
+          }
+          span:nth-child(2) {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

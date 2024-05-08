@@ -1,0 +1,17 @@
+.header {
+    padding: 0 30vh 0 30vh;
+    background-color: beige;
+    ul {
+      padding-left: 0;
+      li {
+        display: inline-block;
+        margin: 10px 10px 10px 0;
+        a {
+          text-decoration: none;
+          color: black;
+          text-transform: uppercase;
+          font-size: calc(0.5rem + 0.5vw);
+        }
+      }
+    }
+  }
