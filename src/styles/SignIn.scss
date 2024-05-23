@@ -1,16 +1,29 @@
-.sign-in{
-    font-family: Arial, Helvetica, sans-serif;
-    display: block;
-    
-form
-{
-    margin-bottom: 1rem;
-*, before, after {
-box-sizing: border-box;
-
-    .email{
-        position: relative;
+.sign-in {
+    background-image: url("../assets/imgs/9091671.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px 35%;
+    width: auto;
+    height: auto;
+  .form {
+    background-color: white;
+    padding: 0 30px;
+    border-radius: 20px;
+    .form-header {
+      align-items: center;
+      text-align: center;
     }
-
+    .form-body {
+      .button {
+        
+        margin-top: 20px;
+        
+        Button {
+          font-weight: bold;
+          // background-color: greenyellow;
+        }
+      }
+      padding-bottom: 10vh;
+    }
+  }
 }
-}}

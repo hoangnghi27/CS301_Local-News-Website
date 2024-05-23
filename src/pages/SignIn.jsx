@@ -1,41 +1,38 @@
-import React from 'react';
 import "../styles/SignIn.scss";
-import Button from 'react-bootstrap/Button';
-import Form  from 'react-bootstrap/Form';
-import InputGroup  from 'react-bootstrap/InputGroup';
-import Container from 'react-bootstrap/Container';
+import { Input, Button } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+
 export default function SignIn() {
-return (
+  return (
     <>
-    <div className='sign-in'>
-        <Container className='row mt-5 mb-3 md-6'>
-            <div className='panel'>
-              <div className='panel-heading'>
-                <h3 className='panel-title'>Sign in</h3>
-              </div>
+      <div className="sign-in">
+        <div className="form">
+          <div className="form-header">
+            <h1>Sign In</h1>
+          </div>
+          <div className="form-body">
+            <div className="user-name">
+              <h2>User Name</h2>
+              <Input
+                prefix={<UserOutlined />}
+                placeholder="Username"
+                size="large"
+              />
             </div>
-            <Form.Label className='email' htmlFor='email' size="lg">Email
-            </Form.Label>
-            <InputGroup className='mx-3' type="email">
-        <Form.Control
-          placeholder="Email..."
-          aria-label="Email"
-          aria-describedby="basic-addon1"
-        />
-            </InputGroup>
-            <Form.Label html htmlFor='password'>Password
-            </Form.Label>
-            <InputGroup className='mx-3' type="password" size="lg">
-        <Form.Control
-          placeholder="Password"
-          aria-label="Password"
-          aria-describedby="basic-addon2"
-        />
-            </InputGroup>
-            <div className='d-grid mt-5 mb-2'>
-            <Button as='input'variant='primary' type='submit' value='Sign in' size='lg'></Button>
+            <div className="password">
+              <h2>Password</h2>
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Password"
+                size="large"
+              />
             </div>
-            </Container>
+            <div className="button">
+              <Button block contentFontSizeLG contentLineHeight size="large">Sign In</Button>
+            </div>
+          </div>
         </div>
-      </>);
+      </div>
+    </>
+  );
 }

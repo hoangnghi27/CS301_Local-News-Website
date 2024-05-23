@@ -3,8 +3,6 @@ import { Row, Col } from "antd";
 import Sidebar from "../layouts/Sidebar";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 export const Home = () => {
   const [data, setData] = useState([]);
@@ -47,13 +45,12 @@ export const Home = () => {
                               <div className="description">{item.title}</div>
                               <div className="src">
                                 <ul>
-                                <span className="news-info">
-                                  {item.creator}
-                                </span>
-                                <span className="news-time">
-                                  {item.pubDate}
-                                </span>
-                               
+                                  <span className="news-info">
+                                    {item.creator}
+                                  </span>
+                                  <span className="news-time">
+                                    {item.pubDate}
+                                  </span>
                                 </ul>
                               </div>
                             </div>

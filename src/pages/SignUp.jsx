@@ -1,74 +1,78 @@
-import React from 'react';
 import "../styles/SignUp.scss";
-import Button from 'react-bootstrap/Button';
-import Form  from 'react-bootstrap/Form';
-import InputGroup  from 'react-bootstrap/InputGroup';
-import Container from 'react-bootstrap/Container';
+import { Input, Button } from "antd";
+import {
+  UserOutlined,
+  MailOutlined,
+  LockOutlined,
+  PhoneOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+
 export default function SignUp() {
-return (
+  return (
     <>
-    <div className='sign up'>
-        <Container className='row mt-5 mb-3 md-6'>
-            <div className='panel'>
-            <div className='panel-heading'>
-            <h3 className='panel-title'>Sign up</h3></div></div>
-            <Form.Label htmlFor='username'>Username
-            </Form.Label>
-            <InputGroup className='mb-3'>
-        <Form.Control
-          placeholder="Your username..."
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-            </InputGroup>
-            <Form.Label htmlFor='email'>Email
-            </Form.Label>
-            <InputGroup className='mb-3' type="email">
-        <Form.Control
-          placeholder="Your email..."
-          aria-label="Email"
-          aria-describedby="basic-addon2"
-        />
-            </InputGroup>
-            <Form.Label html htmlFor='password'>Password
-            </Form.Label>
-            <InputGroup className='mb-3' type="password">
-        <Form.Control
-          placeholder="Create password..."
-          aria-label="Password"
-          aria-describedby="basic-addon3"
-        />
-            </InputGroup>
-            <Form.Label html htmlFor='password'>Confirm Password
-            </Form.Label>
-            <InputGroup className='mb-3' type="password">
-        <Form.Control
-          placeholder="Type password again..."
-          aria-label="Password"
-          aria-describedby="basic-addon4"
-        />
-            </InputGroup>
-            <Form.Label html htmlFor='password'>Phone Number
-            </Form.Label>
-            <InputGroup className='mb-3' type="number">
-        <Form.Control
-          placeholder="Your phone number..."
-          aria-label="Phone number"
-          aria-describedby="basic-addon5"
-        />
-            </InputGroup>
-            <Form.Label html htmlFor='password'>Address
-            </Form.Label>
-            <InputGroup className='mb-3' type="text">
-        <Form.Control
-          placeholder="Your address..."
-          aria-label="Address"
-          aria-describedby="basic-addon6"
-        />
-            </InputGroup>
-            <div className='d-grid mt-3 mb-2'>
-            <Button as='input'variant='primary' type='submit' value='Sign up' size='sm'></Button></div>
-            </Container>
+      <div className="sign-up">
+        <div className="form">
+          <div className="form-header">
+            <h1>Sign Up</h1>
+          </div>
+          <div className="form-body">
+            <div className="user-name">
+              <h3>User Name</h3>
+              <Input
+                prefix={<UserOutlined />}
+                placeholder="Username"
+                size="large"
+              />
+            </div>
+            <div className="email">
+              <h3>Email</h3>
+              <Input
+                prefix={<MailOutlined />}
+                placeholder="Email"
+                size="large"
+              />
+            </div>
+            <div className="password">
+              <h3>Password</h3>
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Password"
+                size="large"
+              />
+            </div>
+            <div className="confirm-password">
+              <h3>Confirm Password</h3>
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Confirm Password"
+                size="large"
+              />
+            </div>
+            <div className="phone">
+              <h3>PhoneNumber</h3>
+              <Input
+                prefix={<PhoneOutlined />}
+                placeholder="PhoneNumber"
+                size="large"
+              />
+            </div>
+            <div className="address">
+              <h3>Address</h3>
+              <Input
+                prefix={<HomeOutlined />}
+                placeholder="Address"
+                size="large"
+              />
+            </div>
+            <div className="button">
+              <Button block contentFontSizeLG contentLineHeight size="large">
+                Sign Up
+              </Button>
+            </div>
+          </div>
         </div>
-      </>);
+      </div>
+    </>
+  );
 }
