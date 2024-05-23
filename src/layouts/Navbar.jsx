@@ -18,8 +18,8 @@ export const Navbar = () => {
         <NavLink style={navLinkStyles} to='/about'><span><InfoCircleTwoTone /><h2>About</h2></span></NavLink>
         </div>
         <div className='accounts'>
-        <NavLink style={navLinkStyles} to='/sign up'><span><UserAddOutlined /><h2>Sign up</h2></span></NavLink>
-        <NavLink style={navLinkStyles} to='/sign in'><span><h2>Sign in</h2><LoginOutlined /></span></NavLink>
+        <NavLink style={navLinkStyles} to='/sign-up'><span><UserAddOutlined /><h2>Sign up</h2></span></NavLink>
+        <NavLink style={navLinkStyles} to='/sign-in'><span><h2>Sign in</h2><LoginOutlined /></span></NavLink>
         </div>
     </nav>
   )
