@@ -10,6 +10,9 @@ import News from "./components/News";
 import Sport from "./components/Sport";
 import Finance from "./components/Finance";
 import Games from "./components/Games";
+import Footer from "./components/Footer";
+import SignUp from "./pages/SignUp";
+import SignIn from"./pages/SignIn";
 
 function App() {
   return (
@@ -63,7 +66,18 @@ function App() {
           element={<Weather />}
           errorElement={<NotFoundPage />}
         />
+        <Route
+        exact path="/sign up"
+        element={<SignUp/>}
+        errorElement={<NotFoundPage/>}
+        />
+         <Route
+        exact path="/sign in"
+        element={<SignIn/>}
+        errorElement={<NotFoundPage/>}
+        />
       </Routes>
+      <Footer/>
     </>
   );
 }

@@ -2,7 +2,7 @@ import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
 import Weather from "./Weather";
 import "../styles/Header.scss";
 import Discover from "./Discover";
-
+import Navbar from "../layouts/Navbar";
 function Header() {
   return (
     <>

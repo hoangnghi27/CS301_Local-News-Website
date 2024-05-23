@@ -40,6 +40,17 @@
                   border: 0.5px solid rgb(105, 99, 99);
                   border-radius: 8px;
                   display: inline-block;
+                  ul{
+                    margin-inline: 1px;
+                    margin: initial;
+                    text-align: right;
+                    margin-top: 1px;
+                    i{
+                    justify-content:space-between;
+                    margin-right: 5px;
+                    padding-top: 4px;
+                    }
+                  }
                   span {
                     display: inline-block;
                     font-size: 0.7rem;
