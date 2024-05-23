@@ -24,7 +24,6 @@ export const Home = () => {
   return (
     <>
       <div className="container">
-      
         {/* Body */}
         <div className="body">
           <Row gutter={16}>
