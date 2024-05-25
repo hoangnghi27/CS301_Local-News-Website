@@ -40,31 +40,32 @@ export default function SignIn() {
 
   return (
     <>
-      <div className="sign-in">
-        <div className="form">
-          <div className="form-header">
+      <div className='sign-in'>
+        <div className='form'>
+          <div className='form-header'>
             <h1>Sign In</h1>
           </div>
-          <div className="form-body">
-            <Form form={form} onFinish={handleSubmit}>
+          <div className='form-body'>
+            <Form
+              form={form}
+              onFinish={handleSubmit}>
               <Form.Item
-                name="username"
+                name='username'
                 rules={[
                   {
                     required: true,
                     message: "Please input your username!",
                   },
-                ]}
-              >
+                ]}>
                 <Input
                   prefix={<UserOutlined />}
-                  placeholder="Username"
-                  size="large"
+                  placeholder='Username'
+                  size='large'
                 />
               </Form.Item>
 
               <Form.Item
-                name="password"
+                name='password'
                 rules={[
                   {
                     required: true,
@@ -74,12 +75,11 @@ export default function SignIn() {
                     min: 6,
                     message: "Password must be at least 6 characters!",
                   },
-                ]}
-              >
+                ]}>
                 <Input.Password
                   prefix={<LockOutlined />}
-                  placeholder="Password"
-                  size="large"
+                  placeholder='Password'
+                  size='large'
                 />
               </Form.Item>
 
@@ -88,11 +88,10 @@ export default function SignIn() {
                   block
                   contentFontSizeLG
                   contentLineHeight
-                  size="large"
-                  type="primary"
-                  htmlType="submit"
-                  loading={loading}
-                >
+                  size='large'
+                  type='primary'
+                  htmlType='submit'
+                  loading={loading}>
                   Sign In
                 </Button>
               </Form.Item>

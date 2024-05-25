@@ -22,33 +22,39 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container">
+      <div className='container'>
         {/* Body */}
-        <div className="body">
+        <div className='body'>
           <Row gutter={16}>
-            <Col span={16} className="gallery">
-              <div className="host-news">
+            <Col
+              span={16}
+              className='gallery'>
+              <div className='host-news'>
                 {data &&
                   data.map((item) => (
-                    <div className="news" key={item.article_id}>
+                    <div
+                      className='news'
+                      key={item.article_id}>
                       <a
                         href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <div className="card">
-                          <div className="card-header">
-                            <img src={item.image_url} alt="" />
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <div className='card'>
+                          <div className='card-header'>
+                            <img
+                              src={item.image_url}
+                              alt=''
+                            />
                           </div>
-                          <div className="card-body">
-                            <div className="title">
-                              <div className="description">{item.title}</div>
-                              <div className="src">
+                          <div className='card-body'>
+                            <div className='title'>
+                              <div className='description'>{item.title}</div>
+                              <div className='src'>
                                 <ul>
-                                  <span className="news-info">
+                                  <span className='news-info'>
                                     {item.creator}
                                   </span>
-                                  <span className="news-time">
+                                  <span className='news-time'>
                                     {item.pubDate}
                                   </span>
                                 </ul>
