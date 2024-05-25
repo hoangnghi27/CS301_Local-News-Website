@@ -1,32 +1,33 @@
-.container{
-    font-family:'Times New Roman', Times, serif;
-    .description{
-        margin-left: 2vh;
-        .des-head{
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        .des-body{
-            padding-left: 2vh;
-        }
-        .des-body-members{
-            font-weight: bold;
-            padding-left: 2vh ;
-        }
-        .members{
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            list-style:none;
-            padding-left: 3vh;
-        }
-        .contact{
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            .contact-head{
-                margin-left: 2vh;
-                font-weight: bold;
-                padding-bottom: 2vh;
-            }
-            .contact-body{
-             margin-left: 3vh;
-            }
-        }
+.container {
+  font-family: "Times New Roman", Times, serif;
+  .description {
+    margin-left: 2vh;
+    .des-head {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+    .des-body {
+      padding-left: 2vh;
+    }
+    .des-body-members {
+      font-weight: bold;
+      padding-left: 2vh;
+    }
+    .members {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      list-style: none;
+      padding-left: 3vh;
+    }
+    .contact {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      .contact-head {
+        margin-left: 2vh;
+        font-weight: bold;
+        padding-bottom: 2vh;
+      }
+      .contact-body {
+        margin-left: 3vh;
+      }
+    }
+  }
 }
