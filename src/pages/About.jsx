@@ -9,8 +9,9 @@ export default function About() {
         <h2 className='pt-3'>About us</h2>
         <p className='des-head'>
           <div className='des-body'>
-            We are developers who have been working on building a website for
-            everyone to read news from official and verified local sources.
+            We are developers who want to deliver a website for everyone to read
+            a collection of news from official and verified local sources with
+            convinience.
           </div>
           <div className='des-body-members'>
             <br />
@@ -21,7 +22,7 @@ export default function About() {
           <div className='members'>
             <text>
               <li>
-                Product Owner: Nguyen Dinh Anh Hao
+                Main Developer: Nguyen Dinh Anh Hao
                 <br />
                 <br />
               </li>
