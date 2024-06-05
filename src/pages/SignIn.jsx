@@ -2,6 +2,8 @@ import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import "../styles/SignIn.scss";
+import { saveLocal } from "../utils/localStorage";
+import axios from "axios";
 
 export default function SignIn() {
   const [form] = Form.useForm();
@@ -9,21 +11,18 @@ export default function SignIn() {
 
   const handleSubmit = async (values) => {
     setLoading(true);
-
     try {
-      const response = await fetch("http://localhost:4000/signin", {
-        method: "POST",
+      const response = await axios.post("http://localhost:4000/signin", values, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
       });
-      const data = await response.json();
+      const data = response.data;
       if (data.accessToken) {
         console.log("User logged in successfully!");
         message.success("User logged in successfully!");
         // Store the token in local storage or a cookie
-        localStorage.setItem("accessToken", data.accessToken);
+        saveLocal("accessToken", data.accessToken);
         // Redirect to home page or do something else
         window.location.href = "/";
       } else {
@@ -32,11 +31,16 @@ export default function SignIn() {
       }
     } catch (error) {
       console.error("Error logging in user:", error);
-      message.error("Error logging in user: " + error.message);
+      if (error && error.message) {
+        message.error("Error logging in user: " + error.message);
+      } else {
+        message.error("Error logging in user");
+      }
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <>
