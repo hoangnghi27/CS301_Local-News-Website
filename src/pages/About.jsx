@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "../styles/About.scss";
-import { MailOutlined } from "@ant-design/icons";
-
+import { EmailIcon } from "react-share";
+import { EmailShareButton } from "react-share";
+import { PhoneFilled } from "@ant-design/icons";
 export default function About() {
   return (
     <div className='container'>
@@ -47,9 +48,20 @@ export default function About() {
             </div>
             <div className='contact-body'>
               <NavLink>
-                <MailOutlined />
+                <EmailShareButton url='https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F%3Ftab%3Drm%26ogbl&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F%3Ftab%3Drm%26ogbl&osid=1&passive=1209600&service=mail&ifkv=AS5LTATh2HTZDl2Xmp8hSADCVPQqdtTTElkq6IkGKE99ygDHhWyj0M7yvmvpUMMfPTsDKx7o81BJkA&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin'>
+                  <EmailIcon
+                    size={15}
+                    round={true}
+                    borderRadius={2}
+                  />
+                </EmailShareButton>
               </NavLink>
-              <text>Email: localnews2024@gmail.com</text>
+              <text>
+                Email: <NavLink>localnews2024@gmail.com</NavLink>
+              </text>
+              <br />
+              <PhoneFilled />
+              <text>Hotline: 0902 547 276</text>
             </div>
           </div>
         </p>
