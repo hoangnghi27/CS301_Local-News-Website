@@ -15,7 +15,10 @@
     .members {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       list-style: none;
-      padding-left: 3vh;
+      padding-left: 2vh;
+      display: flex;
+      justify-content:space-evenly;
+
     }
     .contact {
       font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

@@ -3,6 +3,7 @@ import "../styles/About.scss";
 import { EmailIcon } from "react-share";
 import { EmailShareButton } from "react-share";
 import { PhoneFilled } from "@ant-design/icons";
+import { UserCard } from "react-ui-cards";
 export default function About() {
   return (
     <div className='container'>
@@ -17,27 +18,36 @@ export default function About() {
           <div className='des-body-members'>
             <br />
             Our team:
-            <br />
-            <br />
+            <br/>
           </div>
           <div className='members'>
-            <text>
-              <li>
-                Main Developer: Nguyen Dinh Anh Hao
-                <br />
-                <br />
-              </li>
-              <li>
-                Project Manager: Le Nguyen Hoang Nghi
-                <br />
-                <br />
-              </li>
-              <li>
-                Team member: Tao Cam Xuong
-                <br />
-                <br />
-              </li>
-            </text>
+            <li>
+              <UserCard
+                float
+                href='https://github.com/ohan49'
+                avatar='https://avatars.githubusercontent.com/u/109999890?v=4'
+                name='Hao Nguyen Dinh Anh'
+                positionName='Product Development Leader'
+              />
+            </li>
+            <li>
+              <UserCard
+                float
+                href='https://github.com/hoangnghi27'
+                avatar='https://avatars.githubusercontent.com/u/96094144?v=4'
+                name='Nghi Le Nguyen Hoang'
+                positionName='Project Manager'
+              />
+            </li>
+            <li>
+              <UserCard
+                float
+                href='https://github.com/taocamxuong'
+                avatar='https://avatars.githubusercontent.com/u/100669306?v=4'
+                name='Xuong Cam Tao'
+                positionName='Product Tester'
+              />
+            </li>
           </div>
           <div className='contact'>
             <div className='contact-head'>
@@ -56,9 +66,7 @@ export default function About() {
                   />
                 </EmailShareButton>
               </NavLink>
-              <text>
-                Email: <NavLink>localnews2024@gmail.com</NavLink>
-              </text>
+              <text>Email: localnews2024@gmail.com</text>
               <br />
               <PhoneFilled />
               <text>Hotline: 0902 547 276</text>
