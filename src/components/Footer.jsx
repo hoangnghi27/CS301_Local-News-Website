@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 import { ModalFooter } from "react-bootstrap";
 import { FacebookShareButton } from "react-share";
 import { LinkedinShareButton } from "react-share";
-import { FacebookIcon } from "react-share";
-import { LinkedinIcon } from "react-share";
+import { FacebookIcon, LinkedinIcon } from "react-share";
 import { XIcon } from "react-share";
 import { TwitterShareButton } from "react-share";
 function Footer() {
