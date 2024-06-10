@@ -5,12 +5,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { FacebookShareButton } from "react-share";
-import { XIcon } from "react-share";
-import { FacebookIcon } from "react-share";
 import { TwitterShareButton } from "react-share";
 import { LinkedinShareButton } from "react-share";
-import { LinkedinIcon } from "react-share";
-
+import { FacebookIcon, LinkedinIcon, XIcon } from "react-share";
 
 export const Home = () => {
   const [data, setData] = useState([]);
