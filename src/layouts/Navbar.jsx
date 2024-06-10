@@ -8,7 +8,7 @@ import {
 import React from "react";
 import "../styles/Navbar.scss";
 import { Input, Form, Button } from "antd";
-import { InputGroup } from "react-bootstrap";
+{/*import { InputGroup } from "react-bootstrap";*/}
 
 export const Navbar = () => {
   const navLinkStyles = ({ isActive }) => {
@@ -42,7 +42,6 @@ export const Navbar = () => {
       <div className='accounts'>
         <div className='search-bar'>
           <Form>
-            <InputGroup>
               <Input
                 placeholder='Search...'
                 size='medium'
@@ -67,7 +66,6 @@ export const Navbar = () => {
                   <i className='bi bi-search'></i>
                 </Button>
               </div>
-            </InputGroup>
           </Form>
         </div>
         <NavLink
