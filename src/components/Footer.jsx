@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/Footer.scss";
-import { LineStrokeColorVar } from "antd/es/progress/style";
 import { NavLink } from "react-router-dom";
 import { ModalFooter } from "react-bootstrap";
 import { FacebookShareButton } from "react-share";
 import { LinkedinShareButton } from "react-share";
-import { FacebookIcon } from "react-share";
-import { LinkedinIcon } from "react-share";
+import { TwitterShareButton } from "react-share";
+import { FacebookIcon, LinkedinIcon, XIcon } from "react-share";
+
 function Footer() {
   return (
     <div className='footer'>
@@ -21,6 +21,17 @@ function Footer() {
                   size={14.5}
                   round={true}></FacebookIcon>
               </FacebookShareButton>
+            </li>
+          </NavLink>
+          <NavLink>
+            <li>
+              <TwitterShareButton
+                url='https://x.com/'
+                children=''>
+                <XIcon
+                  size={14.5}
+                  round={true}></XIcon>
+              </TwitterShareButton>
             </li>
           </NavLink>
           <NavLink>

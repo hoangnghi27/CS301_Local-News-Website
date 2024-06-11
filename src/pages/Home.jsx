@@ -3,6 +3,15 @@ import { Row, Col } from "antd";
 import Sidebar from "../layouts/Sidebar";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  LinkedinIcon,
+  XIcon,
+} from "react-share";
 
 export const Home = () => {
   const [data, setData] = useState([]);
@@ -51,6 +60,39 @@ export const Home = () => {
                               <div className='description'>{item.title}</div>
                               <div className='src'>
                                 <ul>
+                                  <NavLink>
+                                    <li>
+                                      <FacebookShareButton
+                                        url='https://www.facebook.com/'
+                                        children=''>
+                                        <FacebookIcon
+                                          size={14.5}
+                                          round={true}></FacebookIcon>
+                                      </FacebookShareButton>
+                                    </li>
+                                  </NavLink>
+                                  <NavLink>
+                                    <li>
+                                      <TwitterShareButton
+                                        url='https://x.com/'
+                                        children=''>
+                                        <XIcon
+                                          size={14.5}
+                                          round={true}></XIcon>
+                                      </TwitterShareButton>
+                                    </li>
+                                  </NavLink>
+                                  <NavLink>
+                                    <li>
+                                      <LinkedinShareButton
+                                        url='https://www.linkedin.com/'
+                                        children=''>
+                                        <LinkedinIcon
+                                          size={14.5}
+                                          round={true}></LinkedinIcon>
+                                      </LinkedinShareButton>
+                                    </li>
+                                  </NavLink>
                                   <span className='news-info'>
                                     {item.creator}
                                   </span>
