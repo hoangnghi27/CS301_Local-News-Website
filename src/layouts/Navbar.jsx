@@ -8,8 +8,7 @@ import {
 } from "@ant-design/icons";
 import React from "react";
 import "../styles/Navbar.scss";
-import { Input, Form, Button } from "antd";
-
+import { Input, Button } from "antd";
 
 export const Navbar = () => {
   const navLinkStyles = ({ isActive }) => {
@@ -41,33 +40,29 @@ export const Navbar = () => {
       </div>
 
       <div className='accounts'>
-        <div className='search-bar'>
-          <Form>
-              <Input
-                placeholder='Search...'
-                size='medium'
-              />
-              <div className='search-bar-btn'>
-                <Button
-                  block
-                  contentFontSizeLG
-                  contentLineHeight
-                  size='small'
-                  type='secondary'
-                  htmlType='submit'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='16'
-                    height='16'
-                    fill='currentColor'
-                    class='bi bi-search'
-                    viewBox='0 0 16 16'>
-                    <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0' />
-                  </svg>
-                  <i className='bi bi-search'></i>
-                </Button>
-              </div>
-          </Form>
+        <div className='search-bar-row'>
+          <Input
+            placeholder='Search...'
+            size='medium'
+          />
+          <Button
+            className='search-bar-btn'
+            contentFontSizeLG
+            contentLineHeight
+            size='small'
+            type='secondary'
+            htmlType='submit'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='16'
+              height='16'
+              fill='currentColor'
+              class='bi bi-search'
+              viewBox='0 0 16 16'>
+              <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0' />
+            </svg>
+            <i className='bi bi-search'></i>
+          </Button>
         </div>
         <NavLink
           style={navLinkStyles}

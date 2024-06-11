@@ -9,19 +9,25 @@ nav {
       display: inline-block;
     }
   }
-  .search-bar{
-      float: left;
-      padding: 6px 10px;
-      margin-top: 10px;
-      margin-right: 10px;
-      font-size: 17px;
-      border: none;
-      cursor: pointer;
-    //.search-bar-btn
+  .search-bar-row {
+    float: left;
+    padding: 6px 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
 
-    //
-    .search-bar-btn:hover {
-      background: lightgrey;
+    .search-bar-btn {
+      left: 189px;
+      top: 2mm;
+    }
+
+    button.ant-btn.css-dev-only-do-not-override-17seli4.ant-btn-secondary.ant-btn-sm.search-bar-btn {
+      top: -26px;
+    }
+    button.ant-btn.css-dev-only-do-not-override-17seli4.ant-btn-secondary.ant-btn-sm.search-bar-btn {
+      left: 182px;
     }
   }
 }
