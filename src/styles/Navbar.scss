@@ -9,7 +9,7 @@ nav {
       display: inline-block;
     }
   }
-  .search-bar-row {
+  .search-bar {
     float: left;
     padding: 6px 10px;
     margin-top: 10px;
@@ -25,9 +25,11 @@ nav {
 
     button.ant-btn.css-dev-only-do-not-override-17seli4.ant-btn-secondary.ant-btn-sm.search-bar-btn {
       top: -26px;
-    }
-    button.ant-btn.css-dev-only-do-not-override-17seli4.ant-btn-secondary.ant-btn-sm.search-bar-btn {
       left: 182px;
+    }
+
+    .search-bar-btn:hover{
+      background-color: lightgray;
     }
   }
 }

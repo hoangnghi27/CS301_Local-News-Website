@@ -40,7 +40,7 @@ export const Navbar = () => {
       </div>
 
       <div className='accounts'>
-        <div className='search-bar-row'>
+        <div className='search-bar'>
           <Input
             placeholder='Search...'
             size='medium'

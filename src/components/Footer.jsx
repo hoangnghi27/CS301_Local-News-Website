@@ -4,8 +4,9 @@ import { NavLink } from "react-router-dom";
 import { ModalFooter } from "react-bootstrap";
 import { FacebookShareButton } from "react-share";
 import { LinkedinShareButton } from "react-share";
-import { FacebookIcon, LinkedinIcon, XIcon } from "react-share";
 import { TwitterShareButton } from "react-share";
+import { FacebookIcon, LinkedinIcon, XIcon } from "react-share";
+
 function Footer() {
   return (
     <div className='footer'>

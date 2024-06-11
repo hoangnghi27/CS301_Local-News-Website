@@ -4,10 +4,14 @@ import Sidebar from "../layouts/Sidebar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import { FacebookShareButton } from "react-share";
-import { TwitterShareButton } from "react-share";
-import { LinkedinShareButton } from "react-share";
-import { FacebookIcon, LinkedinIcon, XIcon } from "react-share";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  LinkedinIcon,
+  XIcon,
+} from "react-share";
 
 export const Home = () => {
   const [data, setData] = useState([]);
