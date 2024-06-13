@@ -6,16 +6,18 @@ import {
   UserAddOutlined,
   LogoutOutlined,
   LoginOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import React, { useState, useEffect } from "react";
 import "../styles/Navbar.scss";
 import { getLocal, removeLocal } from "../utils/localStorage";
 import { Input, Button } from "antd";
 
+
 export const Navbar = () => {
   const navigate = useNavigate();
   const [loggedUser, setLoggedUser] = useState(false);
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     const accessToken = getLocal("accessToken");
@@ -40,6 +42,11 @@ export const Navbar = () => {
     navigate("/");
   };
 
+  const ShowUsername =() => {
+    const [userData, setUserData] = useState([]);
+    setUserData(userData);
+  };
+ 
   return (
     <nav>
       <div className='default'>
@@ -91,13 +98,14 @@ export const Navbar = () => {
             <NavLink
               style={navLinkStyles}
               to='/profile'>
-              {/* Add content for profile link here */}
+                    <span><UserOutlined />
+                   </span>
             </NavLink>
             <div
               className='flex items-center duration-300 hover:text-orange-400'
               onClick={handleLogout}>
               <LogoutOutlined className='rotate-180 me-2' />
-              <span>Đăng xuất</span>
+              <span>Log out</span>
             </div>
             {userData && <div className='name'>{userData}</div>}
           </div>
