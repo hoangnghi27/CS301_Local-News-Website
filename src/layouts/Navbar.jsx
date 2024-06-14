@@ -17,7 +17,7 @@ import { Input, Button } from "antd";
 export const Navbar = () => {
   const navigate = useNavigate();
   const [loggedUser, setLoggedUser] = useState(false);
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const accessToken = getLocal("accessToken");
