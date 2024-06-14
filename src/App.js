@@ -22,60 +22,58 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={<Home />}
-          errorElement={<NotFoundPage />}
-        ></Route>
+          errorElement={<NotFoundPage />}></Route>
         <Route
-          path="about"
+          path='about'
           element={<About />}
-          errorElement={<NotFoundPage />}
-        ></Route>
+          errorElement={<NotFoundPage />}></Route>
         <Route
           exact
-          path="/discover"
+          path='/discover'
           element={<Discover />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/news"
+          path='/news'
           element={<News />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/sports"
+          path='/sports'
           element={<Sport />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/finance"
+          path='/finance'
           element={<Finance />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/games"
+          path='/games'
           element={<Games />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/weather"
+          path='/weather'
           element={<Weather />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/sign-up"
+          path='/sign-up'
           element={<SignUp />}
           errorElement={<Page404 />}
         />
         <Route
           exact
-          path="/sign-in"
+          path='/sign-in'
           element={<SignIn />}
           errorElement={<Page404 />}
         />
