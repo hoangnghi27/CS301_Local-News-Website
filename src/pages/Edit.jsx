@@ -10,8 +10,8 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveLocal } from "../utils/localStorage";
-import axios from "axios";
+/*import { saveLocal } from "../utils/localStorage";
+import axios from "axios";*/
 
 export default function Edit() {
   const [updateProfile, editUserProfile] = useState(false);
@@ -27,7 +27,11 @@ export default function Edit() {
     const accessToken = getLocal("accessToken");
     if (accessToken) {
       if (user) {
-        setUserName = user.userName;
+        setUserName(user.userName);
+        setEmail(user.email);
+        setPwd(user.pwd);
+        setPhone(user.phone);
+        setAddress(user.address);
       }
     }
     if (error) {
@@ -43,10 +47,16 @@ export default function Edit() {
             <h1>Profile</h1>
           </div>
           <div className='form-body'>
-            <Form>
+            <Form
+              onSubmit={(e) => {
+                e.preventDefault();
+                editUserProfile(!updateProfile);
+              }}>
               <Form.Item name='username'>
                 <Input
                   prefix={<UserOutlined />}
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
                   placeholder='Username'
                   size='large'
                 />
@@ -55,6 +65,8 @@ export default function Edit() {
               <Form.Item name='email'>
                 <Input
                   prefix={<MailOutlined />}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder='Email'
                   size='large'
                 />
@@ -75,6 +87,8 @@ export default function Edit() {
                 ]}>
                 <Input.Password
                   prefix={<LockOutlined />}
+                  value={pwd}
+                  onChange={(e) => setPwd(e.target.value)}
                   placeholder='Password'
                   size='large'
                 />
@@ -95,6 +109,8 @@ export default function Edit() {
                 ]}>
                 <Input
                   prefix={<PhoneOutlined />}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   placeholder='Phone Number'
                   size='large'
                 />
@@ -103,6 +119,8 @@ export default function Edit() {
               <Form.Item name='address'>
                 <Input
                   prefix={<HomeOutlined />}
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   placeholder='Address'
                   size='large'
                 />
