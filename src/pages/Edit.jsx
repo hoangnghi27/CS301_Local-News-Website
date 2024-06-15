@@ -53,23 +53,31 @@ export default function Edit() {
                 editUserProfile(!updateProfile);
               }}>
               <Form.Item name='username'>
-                <Input
-                  prefix={<UserOutlined />}
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  placeholder='Username'
-                  size='large'
-                />
+                {updateProfile ? (
+                  <Input
+                    prefix={<UserOutlined />}
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder='Username'
+                    size='large'
+                  />
+                ) : (
+                  <b>{userName}</b>
+                )}
               </Form.Item>
 
               <Form.Item name='email'>
-                <Input
-                  prefix={<MailOutlined />}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder='Email'
-                  size='large'
-                />
+                {updateProfile ? (
+                  <Input
+                    prefix={<MailOutlined />}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='Email'
+                    size='large'
+                  />
+                ) : (
+                  <b>{email}</b>
+                )}
               </Form.Item>
 
               <Form.Item
@@ -85,13 +93,17 @@ export default function Edit() {
                     message: "Password must be at least 6 characters!",
                   },
                 ]}>
-                <Input.Password
-                  prefix={<LockOutlined />}
-                  value={pwd}
-                  onChange={(e) => setPwd(e.target.value)}
-                  placeholder='Password'
-                  size='large'
-                />
+                {updateProfile ? (
+                  <Input.Password
+                    prefix={<LockOutlined />}
+                    value={pwd}
+                    onChange={(e) => setPwd(e.target.value)}
+                    placeholder='Password'
+                    size='large'
+                  />
+                ) : (
+                  <b>{pwd}</b>
+                )}
               </Form.Item>
 
               <Form.Item
@@ -107,23 +119,31 @@ export default function Edit() {
                     message: "Please input a valid phone number!",
                   },
                 ]}>
-                <Input
-                  prefix={<PhoneOutlined />}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder='Phone Number'
-                  size='large'
-                />
+                {updateProfile ? (
+                  <Input
+                    prefix={<PhoneOutlined />}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder='Phone Number'
+                    size='large'
+                  />
+                ) : (
+                  <b>{phone}</b>
+                )}
               </Form.Item>
 
               <Form.Item name='address'>
-                <Input
-                  prefix={<HomeOutlined />}
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  placeholder='Address'
-                  size='large'
-                />
+                {updateProfile ? (
+                  <Input
+                    prefix={<HomeOutlined />}
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    placeholder='Address'
+                    size='large'
+                  />
+                ) : (
+                  <b>{address}</b>
+                )}
               </Form.Item>
 
               <Form.Item>
@@ -135,7 +155,8 @@ export default function Edit() {
                   type='success'
                   htmlType='submit'
                   loading={loading}>
-                  Save changes
+                  {updateProfile ? "Save" : "Edit"}
+                  changes
                 </Button>
               </Form.Item>
             </Form>
