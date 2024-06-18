@@ -10,10 +10,15 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getLocal } from "../utils/localStorage";
+import { getUserProfile } from "../utils/api";
 /*import { saveLocal } from "../utils/localStorage";
 import axios from "axios";*/
 
 export default function Edit() {
+  const userData = getUserProfile();
+  console.log(userData);
+
   const [updateProfile, editUserProfile] = useState(false);
   const [userName, setUserName] = useState([]);
   const [email, setEmail] = useState([]);

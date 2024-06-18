@@ -12,17 +12,23 @@ export default function SignIn() {
   const handleSubmit = async (values) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:4000/signin", values, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:4000/signin",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = response.data;
       if (data.accessToken) {
         console.log("User logged in successfully!");
         message.success("User logged in successfully!");
         // Store the token in local storage or a cookie
         saveLocal("accessToken", data.accessToken);
+        // Save username to local storage
+        saveLocal("username", values.username);
         // Redirect to home page or do something else
         window.location.href = "/";
       } else {
@@ -40,7 +46,6 @@ export default function SignIn() {
       setLoading(false);
     }
   };
-  
 
   return (
     <>

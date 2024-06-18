@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, renderMatches, useNavigate } from "react-router-dom";
 import { LineStrokeColorVar } from "antd/es/progress/style";
 import {
   HomeFilled,
@@ -13,11 +13,11 @@ import "../styles/Navbar.scss";
 import { getLocal, removeLocal } from "../utils/localStorage";
 import { Input, Button } from "antd";
 
-
 export const Navbar = () => {
   const navigate = useNavigate();
   const [loggedUser, setLoggedUser] = useState(false);
   const [userData, setUserData] = useState(null);
+  const username = getLocal("username");
 
   useEffect(() => {
     const accessToken = getLocal("accessToken");
@@ -36,17 +36,12 @@ export const Navbar = () => {
   };
 
   const handleLogout = () => {
+    removeLocal("username");
     removeLocal("accessToken");
-    removeLocal("userData");
     setLoggedUser(false);
     navigate("/");
   };
 
-  const ShowUsername =() => {
-    const [userData, setUserData] = useState([]);
-    setUserData(userData);
-  };
- 
   return (
     <nav>
       <div className='default'>
@@ -98,8 +93,10 @@ export const Navbar = () => {
             <NavLink
               style={navLinkStyles}
               to='/profile'>
-                    <span><UserOutlined />
-                   </span>
+              <span>
+                <UserOutlined />
+                {username}
+              </span>
             </NavLink>
             <div
               className='flex items-center duration-300 hover:text-orange-400'
