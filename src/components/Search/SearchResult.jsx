@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "antd"; // Assuming you're using Ant Design for modals
+import "../../styles/SearchResult.scss";
 
 export const SearchResult = ({ result }) => {
   const [modalVisible, setModalVisible] = useState(false);

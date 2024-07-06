@@ -1,5 +1,6 @@
 import removeAccents from "../../utils/removeAccent";
 import { SearchResult } from './SearchResult';
+import "../../styles/List.scss"
 
 
 function List({ results }) {
