@@ -1,124 +1,127 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Row, Col } from "antd";
-import Sidebar from "../layouts/Sidebar";
-import { NavLink } from "react-router-dom";
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  LinkedinShareButton,
-  FacebookIcon,
-  LinkedinIcon,
-  XIcon,
-} from "react-share";
+import "../styles/Weather.scss";
+import wind from "../assets/imgs/wind.png";
 
 function Weather() {
   const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const lat = "10.82302";
     const lon = "106.62965";
+    const units = "metric";
     const apiKey = "2388e442878e626ec34d7ad4f42fb3bb";
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
     axios
       .get(url)
       .then((response) => {
         console.log(response.data);
         setData(response.data); // Set the data to state
+        setIsLoading(false);
+        const date = new Date(response.data.dt * 1000);
+        const formattedTime = `${date.getHours()}:${(
+          "0" + date.getMinutes()
+        ).slice(-2)}:${("0" + date.getSeconds()).slice(-2)}`;
+        console.log(formattedTime);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  const date = new Date(data?.dt * 1000);
+  const hours = date.getHours();
+  const formattedTime = `${hours}:${("0" + date.getMinutes()).slice(-2)}:${(
+    "0" + date.getSeconds()
+  ).slice(-2)}`;
+
+  let timeOfDay;
+  if (hours < 12) {
+    timeOfDay = "Morning";
+  } else if (hours < 18) {
+    timeOfDay = "Afternoon";
+  } else {
+    timeOfDay = "Night";
+  }
+
+  let windtype;
+  if (data?.wind?.speed < 0.5) {
+    windtype = "Calm";
+  } else if (data?.wind?.speed < 1.5) {
+    windtype = "Light Breeze";
+  } else if (data?.wind?.speed < 3.3) {
+    windtype = "Gentle Breeze";
+  } else if (data?.wind?.speed < 5.5) {
+    windtype = "Moderate Breeze";
+  } else if (data?.wind?.speed < 7.9) {
+    windtype = "Fresh Breeze";
+  } else if (data?.wind?.speed < 10.7) {
+    windtype = "Strong Breeze";
+  } else if (data?.wind?.speed < 13.8) {
+    windtype = "Near Gale";
+  } else if (data?.wind?.speed < 17.1) {
+    windtype = "Gale";
+  } else if (data?.wind?.speed < 20.7) {
+    windtype = "Severe Gale";
+  } else if (data?.wind?.speed < 24.4) {
+    windtype = "Strong Gale";
+  } else if (data?.wind?.speed < 28.4) {
+    windtype = "Storm";
+  } else if (data?.wind?.speed < 32.6) {
+    windtype = "Violent Storm";
+  } else {
+    windtype = "Hurricane";
+  }
+
   return (
-    <div>
-      Weather
-      <div className='container'>
-        {/* Body */}
-        <div className='body'>
-          <Row gutter={16}>
-            <Col
-              span={16}
-              className='gallery'>
-              <div className='host-news'>
-                {data &&
-                  data.map((item) => (
-                    <div
-                      className='news'
-                      key={item.article_id}>
-                      <a
-                        href={item.link}
-                        target='_blank'
-                        rel='noopener noreferrer'>
-                        <div className='card'>
-                          <div className='card-header'>
-                            <img
-                              src={item.image_url}
-                              alt=''
-                            />
-                          </div>
-                          <div className='card-body'>
-                            <div className='title'>
-                              <div className='description'>{item.title}</div>
-                              <div className='src'>
-                                <ul>
-                                  <NavLink>
-                                    <li>
-                                      <FacebookShareButton
-                                        url='https://www.facebook.com/'
-                                        children=''>
-                                        <FacebookIcon
-                                          size={14.5}
-                                          round={true}></FacebookIcon>
-                                      </FacebookShareButton>
-                                    </li>
-                                  </NavLink>
-                                  <NavLink>
-                                    <li>
-                                      <TwitterShareButton
-                                        url='https://x.com/'
-                                        children=''>
-                                        <XIcon
-                                          size={14.5}
-                                          round={true}></XIcon>
-                                      </TwitterShareButton>
-                                    </li>
-                                  </NavLink>
-                                  <NavLink>
-                                    <li>
-                                      <LinkedinShareButton
-                                        url='https://www.linkedin.com/'
-                                        children=''>
-                                        <LinkedinIcon
-                                          size={14.5}
-                                          round={true}></LinkedinIcon>
-                                      </LinkedinShareButton>
-                                    </li>
-                                  </NavLink>
-                                  <span className='news-info'>
-                                    {item.creator}
-                                  </span>
-                                  <span className='news-time'>
-                                    {item.pubDate}
-                                  </span>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                      <hr />
-                    </div>
-                  ))}
+    <div className='weather-container'>
+      <div className='weather-content'>
+        <div className='weather-header'>
+          <h1>Ho Chi Minh City</h1>
+          <h2>Good {timeOfDay}</h2>
+        </div>
+        <div className='weather-body'>
+          <div className='body-header'>
+            <div className='time'>Time: {formattedTime}</div>
+            <div className='temp'>
+              <div className='temperature'>
+                {Math.floor(data?.main?.temp)}°C
               </div>
-            </Col>
-            {/* Side bar */}
-            <Col span={8}>
-              <Sidebar />
-            </Col>
-          </Row>
+            </div>
+            <div className='wind'>
+              <div className='wind-icon'>
+                <img
+                  src={wind}
+                  alt='wind'
+                />
+              </div>
+              <div className='wind-detail'>
+                <h3>Wind speed: {data?.wind?.speed} m/s</h3>
+                <div className='wind-type'>{windtype}</div>
+              </div>
+            </div>
+          </div>
+          <div className='logo'>
+            <img
+              src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`}
+              alt='logo'
+            />
+          </div>
+          <div className='weather-description'>
+            <div className='title'>{data?.weather[0]?.description}</div>
+
+            <div className='humidity'>Humidity: {data?.main?.humidity} %</div>
+
+            <div className='cloud'>Cloud: {data?.clouds?.all} %</div>
+
+            <div className='visibility'>Visibility: {data?.visibility} meter</div>
+          </div>
         </div>
       </div>
     </div>

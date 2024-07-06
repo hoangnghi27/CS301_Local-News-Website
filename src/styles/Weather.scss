@@ -1,0 +1,73 @@
+.weather-container {
+  padding: 10vh 20% 10vh 20%;
+  background-image: url("../assets/imgs/bgweather.jpg");
+  color: white;
+  .weather-content {
+    background: linear-gradient(to right, #6dafcf, #357dab);
+    padding: 5px 10%;
+    opacity: 0.9;
+    border-radius: 1rem;
+    .weather-header {
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    .weather-body {
+      display: flex;
+      justify-content: space-between;
+      .body-header {
+        padding-top: 5rem;
+        align-items: center;
+        text-align: center;
+        .time {
+          font-size: 1.4rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+        .temp {
+          clear: both;
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          font-size: 3rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+        .wind {
+          padding: 0.4rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+          background-color: rgba(0, 0, 0, 0.1); 
+          border-radius: 0.5rem;
+          .wind-icon {
+            img {
+              width: 3rem;
+              margin-top: 30px;
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+      .logo {
+        img {
+          width: 20vw;
+          image-rendering: pixelated;
+        }
+      }
+    }
+    .weather-description {
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding-top: 5rem;
+      text-transform: capitalize;
+      .title, .humidity, .cloud {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
