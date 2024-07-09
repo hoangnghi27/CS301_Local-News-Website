@@ -14,6 +14,8 @@ import Footer from "./components/Footer";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Page404 from "./pages/Page404";
+import Edit from "./pages/Edit";
+
 
 function App() {
   return (
@@ -24,11 +26,13 @@ function App() {
         <Route
           path='/'
           element={<Home />}
-          errorElement={<NotFoundPage />}></Route>
+          errorElement={<NotFoundPage />}
+        />
         <Route
-          path='about'
+          path='/about' // Add a leading slash here
           element={<About />}
-          errorElement={<NotFoundPage />}></Route>
+          errorElement={<NotFoundPage />}
+        />
         <Route
           exact
           path='/discover'
@@ -75,6 +79,11 @@ function App() {
           exact
           path='/sign-in'
           element={<SignIn />}
+          errorElement={<Page404 />}
+        />
+        <Route
+          path='/profile'
+          element={<Edit />}
           errorElement={<Page404 />}
         />
       </Routes>

@@ -1,50 +1,45 @@
-import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
-import Weather from "./Weather";
+import { NavLink } from "react-router-dom";
 import "../styles/Header.scss";
-import Discover from "./Discover";
-import Navbar from "../layouts/Navbar";
 function Header() {
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "none" : "underline",
+    };
+  };
   return (
     <>
-      <div className="header">
-        <ul className="header-li">
+      <div className='header'>
+        <ul className='header-li'>
           <li>
-          <NavLink
-              to="/discover"
-              style={({ isActive, isPending, isTransitioning }) => {
-                return {
-                  fontWeight: isActive ? "bold" : "",
-                  color: isPending ? "red" : "black",
-                  viewTransitionName: isTransitioning ? "slide" : "",
-                };
-              }}
-            >
+            <NavLink
+              to='/discover'
+              style={navLinkStyles}>
               Khám phá
             </NavLink>
           </li>
           <li>
-            <a href="#">Tin tức</a>
+            <a href='#'>Tin tức</a>
           </li>
           <li>
-            <a href="#">Thể thao</a>
+            <a href='#'>Thể thao</a>
           </li>
           <li>
-            <a href="#">Trò chơi</a>
+            <a href='#'>Trò chơi</a>
           </li>
           <li>
-            <a href="#">Tài chính</a>
+            <a href='#'>Tài chính</a>
           </li>
           <li>
             <NavLink
-              to="/weather"
+              to='/weather'
               style={({ isActive, isPending, isTransitioning }) => {
                 return {
                   fontWeight: isActive ? "bold" : "",
                   color: isPending ? "red" : "black",
                   viewTransitionName: isTransitioning ? "slide" : "",
                 };
-              }}
-            >
+              }}>
               Thời tiết
             </NavLink>
           </li>

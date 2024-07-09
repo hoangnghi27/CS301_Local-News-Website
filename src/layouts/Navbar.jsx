@@ -12,13 +12,13 @@ import React, { useState, useEffect } from "react";
 import "../styles/Navbar.scss";
 import { getLocal, removeLocal } from "../utils/localStorage";
 import { SearchBar } from "../components/Search/SearchBar";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const [loggedUser, setLoggedUser] = useState(false);
   const [userData, setUserData] = useState(null);
   const username = getLocal("username");
-  const [results, setResults] = useState([]);
 
   useEffect(() => {
     const accessToken = getLocal("accessToken");
@@ -73,9 +73,9 @@ export const Navbar = () => {
             <NavLink
               style={navLinkStyles}
               to='/profile'>
-              <span>
+              <span className='pf'>
                 <UserOutlined />
-                {username}
+                <span className='username'>{username}</span>
               </span>
             </NavLink>
             <div

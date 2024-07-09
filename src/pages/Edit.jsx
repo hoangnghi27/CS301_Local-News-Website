@@ -1,64 +1,109 @@
-import React, { useEffect } from "react";
-import "../styles/Edit.scss";
+import React, { useEffect, useState } from "react";
 import { Input, Button, Form, message } from "antd";
 import {
   UserOutlined,
   MailOutlined,
   LockOutlined,
-  PhoneOutlined,
   HomeOutlined,
+  PhoneOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getLocal } from "../utils/localStorage";
-import { getUserProfile } from "../utils/api";
-/*import { saveLocal } from "../utils/localStorage";
-import axios from "axios";*/
+import axios from "axios";
 
-export default function Edit() {
-  const userData = getUserProfile();
-  console.log(userData);
+const EditProfile = () => {
+  const loggedIn = useSelector((state) => state.auth.loggedIn);
+  const error = useSelector((state) => state.auth.error);
+  const loading = useSelector((state) => state.auth.loading);
 
-  const [updateProfile, editUserProfile] = useState(false);
-  const [userName, setUserName] = useState([]);
-  const [email, setEmail] = useState([]);
-  const [pwd, setPwd] = useState([]);
-  const [phone, setPhone] = useState([]);
-  const [address, setAddress] = useState([]);
-  const dispath = useDispatch();
-  const user = useSelector((state) => state.loggedIn);
-  const { loggedIn, error, loading } = useSelector((state) => state.user);
+  const [updateProfile, setUpdateProfile] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+
   useEffect(() => {
     const accessToken = getLocal("accessToken");
+
     if (accessToken) {
-      if (user) {
-        setUserName(user.userName);
-        setEmail(user.email);
-        setPwd(user.pwd);
-        setPhone(user.phone);
-        setAddress(user.address);
+      if (loggedIn) {
+        setUserName(loggedIn.userName);
+        setEmail(loggedIn.email);
+        setPwd(loggedIn.pwd);
+        setPhone(loggedIn.phone);
+        setAddress(loggedIn.address);
       }
     }
+
     if (error) {
       console.error("Cannot save updated profile", error);
       message.error("Cannot save updated profile" + error);
     }
-  }, []);
+  }, [loggedIn, error]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedProfile = {
+      userName,
+      email,
+      pwd,
+      phone,
+      address,
+    };
+
+    axios
+      .put("/api/user/profile", updatedProfile, {
+        headers: {
+          Authorization: `Bearer ${getLocal("accessToken")}`,
+        },
+      })
+      .then((response) => {
+        message.success("Profile updated successfully");
+        setUpdateProfile(false);
+      })
+      .catch((error) => {
+        console.error("Error updating profile", error);
+        message.error("Error updating profile");
+      });
+  };
+
   return (
-    <>
-      <div className='profile'>
-        <div className='form'>
-          <div className='form-header'>
-            <h1>Profile</h1>
-          </div>
-          <div className='form-body'>
-            <Form
-              onSubmit={(e) => {
-                e.preventDefault();
-                editUserProfile(!updateProfile);
-              }}>
-              <Form.Item name='username'>
-                {updateProfile ? (
+    <div className='profile'>
+      <div className='form'>
+        <div className='form-header'>
+          <h1>Profile</h1>
+        </div>
+        <div className='form-body'>
+          <Form onSubmit={handleSubmit}>
+            {loggedIn && (
+              <div className='user-details'>
+                <h2>User Information</h2>
+                <p>
+                  <strong>Username:</strong> {loggedIn.userName}
+                </p>
+                <p>
+                  <strong>Email:</strong> {loggedIn.email}
+                </p>
+                {loggedIn.phone && (
+                  <p>
+                    <strong>Phone:</strong> {loggedIn.phone}
+                  </p>
+                )}
+                {loggedIn.address && (
+                  <p>
+                    <strong>Address:</strong> {loggedIn.address}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Edit profile form */}
+            {updateProfile && (
+              <div className='edit-profile-form'>
+                <Form.Item
+                  name='username'
+                  label='Username'>
                   <Input
                     prefix={<UserOutlined />}
                     value={userName}
@@ -66,13 +111,11 @@ export default function Edit() {
                     placeholder='Username'
                     size='large'
                   />
-                ) : (
-                  <b>{userName}</b>
-                )}
-              </Form.Item>
+                </Form.Item>
 
-              <Form.Item name='email'>
-                {updateProfile ? (
+                <Form.Item
+                  name='email'
+                  label='Email'>
                   <Input
                     prefix={<MailOutlined />}
                     value={email}
@@ -80,25 +123,11 @@ export default function Edit() {
                     placeholder='Email'
                     size='large'
                   />
-                ) : (
-                  <b>{email}</b>
-                )}
-              </Form.Item>
+                </Form.Item>
 
-              <Form.Item
-                name='password'
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your password!",
-                  },
-
-                  {
-                    min: 6,
-                    message: "Password must be at least 6 characters!",
-                  },
-                ]}>
-                {updateProfile ? (
+                <Form.Item
+                  name='password'
+                  label='Password'>
                   <Input.Password
                     prefix={<LockOutlined />}
                     value={pwd}
@@ -106,39 +135,23 @@ export default function Edit() {
                     placeholder='Password'
                     size='large'
                   />
-                ) : (
-                  <b>{pwd}</b>
-                )}
-              </Form.Item>
+                </Form.Item>
 
-              <Form.Item
-                name='phoneNumber'
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your phone number!",
-                  },
-
-                  {
-                    pattern: /^[0-9]{10}$/,
-                    message: "Please input a valid phone number!",
-                  },
-                ]}>
-                {updateProfile ? (
+                <Form.Item
+                  name='phone'
+                  label='Phone'>
                   <Input
                     prefix={<PhoneOutlined />}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder='Phone Number'
+                    placeholder='Phone'
                     size='large'
                   />
-                ) : (
-                  <b>{phone}</b>
-                )}
-              </Form.Item>
+                </Form.Item>
 
-              <Form.Item name='address'>
-                {updateProfile ? (
+                <Form.Item
+                  name='address'
+                  label='Address'>
                   <Input
                     prefix={<HomeOutlined />}
                     value={address}
@@ -146,28 +159,34 @@ export default function Edit() {
                     placeholder='Address'
                     size='large'
                   />
-                ) : (
-                  <b>{address}</b>
-                )}
-              </Form.Item>
+                </Form.Item>
 
-              <Form.Item>
-                <Button
-                  block
-                  contentFontSizeLG
-                  contentLineHeight
-                  size='large'
-                  type='success'
-                  htmlType='submit'
-                  loading={loading}>
-                  {updateProfile ? "Save" : "Edit"}
-                  changes
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
+                <Form.Item>
+                  <Button
+                    block
+                    contentFontSizeLG
+                    contentLineHeight
+                    size='large'
+                    type='success'
+                    htmlType='submit'
+                    loading={loading}>
+                    Save Changes
+                  </Button>
+                </Form.Item>
+              </div>
+            )}
+
+            {/* Edit profile button */}
+            <Button
+              type='primary'
+              onClick={() => setUpdateProfile(!updateProfile)}>
+              {updateProfile ? "Cancel" : "Edit Profile"}
+            </Button>
+          </Form>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
+
+export default EditProfile;

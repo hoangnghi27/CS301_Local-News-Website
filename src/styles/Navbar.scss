@@ -1,4 +1,9 @@
 nav {
+  background-color: white;
+  z-index: 1;
+  position: sticky;
+  transition: all 0.5s;
+  top: 0;
   display: flex;
   justify-content: space-between;
   span {
@@ -9,9 +14,22 @@ nav {
       display: inline-block;
     }
   }
-    span.anticon.anticon-user {
-      position: relative;
-      top: 20px;
-      right: 206px;
+  span.anticon.anticon-user {
+    position: relative;
+    top: 20px;
+    right: 206px;
+  }
+  .search {
+    padding-top: 20px;
+  }
+  .accounts {
+    .user {
+      .pf {
+        display: inline-block;
+        .username {
+          translate: -230px 20px;
+        }
+      }
     }
+  }
 }
