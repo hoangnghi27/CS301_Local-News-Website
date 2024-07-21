@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal } from "antd"; // Assuming you're using Ant Design for modals
+import { Modal } from "antd";
 import "../../styles/SearchResult.scss";
 
 export const SearchResult = ({ result }) => {
@@ -21,7 +21,7 @@ export const SearchResult = ({ result }) => {
         visible={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={null}>
-        You selected: {result}
+        You selected: <strong>{result}</strong>
       </Modal>
     </>
   );
