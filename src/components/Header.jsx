@@ -19,16 +19,32 @@ function Header() {
             </NavLink>
           </li>
           <li>
-            <a href='#'>Tin tức</a>
+          <NavLink
+              to='/news'
+              style={navLinkStyles}>
+              Tin tức
+            </NavLink>
           </li>
           <li>
-            <a href='#'>Thể thao</a>
+          <NavLink
+              to='/sport'
+              style={navLinkStyles}>
+              Thể thao
+            </NavLink>
           </li>
           <li>
-            <a href='#'>Trò chơi</a>
+          <NavLink
+              to='/games'
+              style={navLinkStyles}>
+              Trò chơi
+            </NavLink>
           </li>
           <li>
-            <a href='#'>Tài chính</a>
+          <NavLink
+              to='/finance'
+              style={navLinkStyles}>
+              Tài chính
+            </NavLink>
           </li>
           <li>
             <NavLink

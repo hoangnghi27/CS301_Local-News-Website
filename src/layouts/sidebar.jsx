@@ -9,7 +9,7 @@ function Sidebar() {
   useEffect(() => {
     axios
       .get(
-        "https://newsdata.io/api/1/news?apikey=pub_43665bc60ccb798f4acbdcecd542b8e2a684a&q=news&country=vi"
+        "https://newsdata.io/api/1/latest?apikey=pub_43665bc60ccb798f4acbdcecd542b8e2a684a&q=pegasus&language=en"
       )
       .then((response) => {
         setData(response.data.results);

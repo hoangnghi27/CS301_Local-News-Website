@@ -22,14 +22,7 @@ nav {
   .search {
     padding-top: 20px;
   }
-  .accounts {
-    .user {
-      .pf {
-        display: inline-block;
-        .username {
-          translate: -230px 20px;
-        }
-      }
-    }
+  .accounts .user .pf .username {
+    transform: translate(-230px, 20px);
   }
 }
