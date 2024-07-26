@@ -8,6 +8,11 @@
   background-color: white;
   display: flex;
   align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.input-wrapper:hover {
+  box-shadow: 0px 0px 12px #ccc;
 }
 
 input {
@@ -17,12 +22,21 @@ input {
   font-size: 1.25rem;
   width: 100%;
   margin-left: 5px;
+  transition: box-shadow 0.3s ease;
 }
 
 input:focus {
   outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input::placeholder {
+  color: #aaa;
 }
 
 #search-icon {
   color: royalblue;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
 }

@@ -1,5 +1,4 @@
-import { NavLink, renderMatches, useNavigate } from "react-router-dom";
-import { LineStrokeColorVar } from "antd/es/progress/style";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   HomeFilled,
   InfoCircleTwoTone,
@@ -11,8 +10,7 @@ import {
 import React, { useState, useEffect } from "react";
 import "../styles/Navbar.scss";
 import { getLocal, removeLocal } from "../utils/localStorage";
-import { SearchBar } from "../components/Search/SearchBar";
-import { useDispatch, useSelector } from "react-redux";
+import ParentComponent from "../components/Search/ParentComponent";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -64,7 +62,7 @@ export const Navbar = () => {
         </NavLink>
       </div>
       <div className='search'>
-        <SearchBar />
+        <ParentComponent />
       </div>
 
       <div className='accounts'>

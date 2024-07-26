@@ -1,8 +1,8 @@
-import "../../styles/Search.scss";
+// src/components/SearchBar.jsx
 import React, { useState, useEffect } from "react";
 import { SearchOutlined } from "@ant-design/icons";
-import List from "./list";
-import axios from 'axios';
+import axios from "axios";
+import "../../styles/Search.scss";
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
@@ -34,19 +34,21 @@ export const SearchBar = ({ setResults }) => {
     const lowerCase = e.target.value.toLowerCase();
     setInput(lowerCase);
     const results = fetchData(lowerCase);
+    console.log("setResults:", typeof setResults); // Debugging line
     setResults(results);
   };
 
   return (
-    <div className='input-wrapper'>
-      <SearchOutlined id='search-icon' />
-      <input
-        placeholder='Type to search...'
-        value={input}
-        onChange={(e) => handleChange(e)}
-      />
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      <List results={fetchData(input)} />
+    <div className="search-container">
+      <div className="input-wrapper">
+        <SearchOutlined id="search-icon" />
+        <input
+          placeholder="Type to search..."
+          value={input}
+          onChange={(e) => handleChange(e)}
+        />
+        {error && <div style={{ color: "red" }}>{error}</div>}
+      </div>
     </div>
   );
 };
