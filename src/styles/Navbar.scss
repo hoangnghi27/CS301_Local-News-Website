@@ -6,23 +6,79 @@ nav {
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+
   span {
     color: black;
     display: inline-block;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
+    font-size: calc(0.5rem + 1vw);
+
     h2 {
       display: inline-block;
+      margin: 0;
     }
   }
-  span.anticon.anticon-user {
-    position: relative;
-    top: 20px;
-    right: 206px;
-  }
+
   .search {
-    padding-top: 20px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
   }
-  .accounts .user .pf .username {
-    transform: translate(-230px, 20px);
+
+  .accounts {
+    display: flex;
+    align-items: center;
+
+    .user {
+      display: flex;
+      align-items: center;
+
+      .pf {
+        display: flex;
+        align-items: center;
+
+        .username {
+          margin-left: 10px;
+        }
+      }
+
+      .name {
+        margin-left: 20px;
+      }
+    }
+
+    .login {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+/* Media query for screens less than 768px */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px;
+  }
+
+  .input-wrapper {
+    max-width: 400px; /* Adjust width for medium screens */
+  }
+}
+
+/* Media query for screens less than 400px */
+@media (max-width: 400px) {
+  nav {
+    padding: 10px;
+  }
+
+  .input-wrapper {
+    max-width: 300px; /* Adjust width for very small screens */
   }
 }

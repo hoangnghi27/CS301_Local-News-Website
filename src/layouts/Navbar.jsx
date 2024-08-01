@@ -27,12 +27,10 @@ export const Navbar = () => {
     }
   }, []);
 
-  const navLinkStyles = ({ isActive }) => {
-    return {
-      fontWeight: isActive ? "bold" : "normal",
-      textDecoration: isActive ? "none" : "underline",
-    };
-  };
+  const navLinkStyles = ({ isActive }) => ({
+    fontWeight: isActive ? "bold" : "normal",
+    textDecoration: isActive ? "none" : "underline",
+  });
 
   const handleLogout = () => {
     removeLocal("username");
@@ -44,17 +42,13 @@ export const Navbar = () => {
   return (
     <nav>
       <div className='default'>
-        <NavLink
-          style={navLinkStyles}
-          to='/'>
+        <NavLink style={navLinkStyles} to='/'>
           <span>
             <HomeFilled />
             <h2>Home</h2>
           </span>
         </NavLink>
-        <NavLink
-          style={navLinkStyles}
-          to='/about'>
+        <NavLink style={navLinkStyles} to='/about'>
           <span>
             <InfoCircleTwoTone />
             <h2>About</h2>
@@ -62,15 +56,14 @@ export const Navbar = () => {
         </NavLink>
       </div>
       <div className='search'>
-        <ParentComponent />
+        <div className='input-wrapper'>
+          <ParentComponent />
+        </div>
       </div>
-
       <div className='accounts'>
         {loggedUser ? (
           <div className='user'>
-            <NavLink
-              style={navLinkStyles}
-              to='/profile'>
+            <NavLink style={navLinkStyles} to='/profile'>
               <span className='pf'>
                 <UserOutlined />
                 <span className='username'>{username}</span>
@@ -78,7 +71,8 @@ export const Navbar = () => {
             </NavLink>
             <div
               className='flex items-center duration-300 hover:text-orange-400'
-              onClick={handleLogout}>
+              onClick={handleLogout}
+            >
               <LogoutOutlined className='rotate-180 me-2' />
               <span>Log out</span>
             </div>
@@ -86,17 +80,13 @@ export const Navbar = () => {
           </div>
         ) : (
           <div className='login'>
-            <NavLink
-              style={navLinkStyles}
-              to='/sign-up'>
+            <NavLink style={navLinkStyles} to='/sign-up'>
               <span>
                 <UserAddOutlined />
                 <h2>Sign up</h2>
               </span>
             </NavLink>
-            <NavLink
-              style={navLinkStyles}
-              to='/sign-in'>
+            <NavLink style={navLinkStyles} to='/sign-in'>
               <span>
                 <LoginOutlined />
                 <h2>Sign in</h2>

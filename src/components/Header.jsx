@@ -1,16 +1,32 @@
 import { NavLink } from "react-router-dom";
+import { MenuOutlined } from "@ant-design/icons";
 import "../styles/Header.scss";
+import { useState } from "react";
+
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
       textDecoration: isActive ? "none" : "underline",
     };
   };
+
+  const onMenuClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <div className='header'>
-        <ul className='header-li'>
+        <div
+          id='menu-icon'
+          className='menu-icon'
+          onClick={onMenuClick}>
+          <MenuOutlined />
+        </div>
+        <ul className={`header-li ${menuOpen ? "open" : ""}`}>
           <li>
             <NavLink
               to='/discover'
@@ -19,28 +35,28 @@ function Header() {
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to='/news'
               style={navLinkStyles}>
               Tin tức
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to='/sport'
               style={navLinkStyles}>
               Thể thao
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to='/games'
               style={navLinkStyles}>
               Trò chơi
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to='/finance'
               style={navLinkStyles}>
               Tài chính

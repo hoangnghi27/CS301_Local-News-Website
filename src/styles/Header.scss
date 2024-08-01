@@ -1,22 +1,45 @@
 .header {
-  padding: 0 30vh 0 30vh;
+  align-items: center;
+  text-align: center;
   background-color: beige;
-  z-index: 1; 
+  z-index: 1;
   position: sticky;
   transition: all 0.5s;
   top: 65px;
-  ul {
-    padding-left: 0;
-    margin: 0;
-    li {
-      display: inline-block;
-      margin: 10px 10px 10px 0;
-      a {
-        text-decoration: none;
-        color: black;
-        text-transform: uppercase;
-        font-size: calc(0.5rem + 0.5vw);
-      }
-    }
+}
+
+.header ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.header ul li {
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+}
+
+.header ul li a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: calc(0.5rem + 0.5vw);
+}
+
+.menu-icon {
+  display: none; /* Hide by default */
+}
+
+/* Media query for screens less than 400px */
+@media (max-width: 400px) {
+  .menu-icon {
+    display: block; /* Show menu icon */
+  }
+
+  .header ul {
+    display: none; /* Hide navigation items by default */
+  }
+
+  .header ul.open {
+    display: block; /* Show navigation items when menu is open */
   }
 }

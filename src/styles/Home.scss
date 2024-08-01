@@ -1,7 +1,7 @@
 .container {
   background-color: transparent;
   .body {
-    padding: 0 30vh 0 30vh;
+    padding: 0 10vw 0 10vw;
     .gallery {
       .host-news {
         .news {
@@ -46,7 +46,7 @@
                     text-align: right;
                     margin-top: 1px;
                     padding-left: 2vh;
-                    
+
                     li {
                       display: inline-block;
                       align-content: flex-start;
@@ -69,6 +69,84 @@
           }
         }
       }
+    }
+  }
+}
+
+/* Large screens (desktops) */
+
+@media (min-width: 1200px) {
+  .body {
+    padding: 0 40vh 0 40vh;
+  }
+
+  .gallery {
+    .host-news {
+      .news {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+/* Medium screens (tablets) */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .body {
+    padding: 0 20vh 0 20vh;
+  }
+
+  .gallery {
+    .host-news {
+      .news {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+/* Small screens (mobiles) */
+
+@media (max-width: 767px) {
+  .body {
+    padding: 0 10vh 0 10vh;
+  }
+
+  .gallery {
+    .host-news {
+      .news {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .card {
+    margin: 5px;
+  }
+
+  .card-header {
+    img {
+      height: 20vh;
+    }
+  }
+
+  .card-body {
+    padding-bottom: 10px;
+  }
+
+  .title {
+    .description {
+      font-size: 1.2rem;
+    }
+  }
+
+  .src {
+    ul {
+      padding-left: 1vh;
+    }
+
+    li {
+      margin-right: 2px;
     }
   }
 }
